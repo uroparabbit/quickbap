@@ -10,7 +10,14 @@
     <h1>퀵밥 관리자 페이지</h1>
 
     <video id="camera" autoplay playsinline></video>
+
+    <div style="margin-top: 20px;">
+        <span>연속 5번 인식될 때만 인식으로 처리: </span>
+        <input type="checkbox" id="inarow" checked />
+    </div>
+
     <div id="status">Initializing...</div>
+    
 
     <script src="https://cdn.socket.io/4.5.4/socket.io.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs"></script>

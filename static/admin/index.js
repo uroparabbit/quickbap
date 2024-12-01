@@ -5,6 +5,7 @@ const socket = io();
 let detectionCount = 0;
 let cameraMode = Number(prompt("몇 번째 카메라?"));
 let cameraStatus = 0;
+let faceInARow = 0;
 
 
 async function setupCamera() {
@@ -31,13 +32,21 @@ async function detectFaces() {
         const predictions = await model.estimateFaces(video);
         const detectedFaces = predictions.length;
 
-        statusDiv.textContent = `${cameraMode}번째 카메라 - ${detectionCount}번째 얼굴인식 성공 - ${detectedFaces}명`
+        if (detectedFaces > 0) {
+            faceInARow++
+        } else {
+            faceInARow = 0
+        }
+
+        statusDiv.textContent = `${cameraMode}번째 카메라 - ${detectionCount}번째 얼굴인식 성공 - ${detectedFaces}명 - ${faceInARow}번 연속 얼굴`
         
         if (cameraStatus !== detectedFaces) { // 갱신된 경우에만,
-            socket.emit("camera_changed", { cameraMode, detectedFaces });
-            cameraStatus = detectedFaces
+            if ((detectedFaces === 0) || (!document.getElementById("inarow").checked || faceInARow >= 5)) {
+                socket.emit("camera_changed", { cameraMode, detectedFaces });
+                cameraStatus = detectedFaces
+            }
         }
-    }, 3000);
+    }, 1000);
 }
 
 
