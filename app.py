@@ -1,4 +1,4 @@
-from flask import Flask, render_template, jsonify, request
+from flask import Flask, render_template, jsonify, request, jsonify
 from flask_socketio import SocketIO, emit
 
 app = Flask(__name__)
@@ -16,7 +16,7 @@ def admin():
 
 @app.route("/get", methods=["GET"])
 def get():
-    return camera
+    return jsonify(camera)
 
 
 @socketio.on("camera_changed")
