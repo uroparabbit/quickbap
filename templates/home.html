@@ -8,7 +8,10 @@
 </head>
 <body>
     <h1>퀵밥</h1>
-    <div id="data">Waiting for updates...</div>
+    <div id="data">
+        <img src="" alt="Status Image" id="img">
+        <p id="label">데이터 대기중</p>
+    </div>
     <script src="https://cdn.socket.io/4.5.4/socket.io.min.js"></script>
     <script src="{{ url_for('static', filename='home/index.js') }}"></script>
 </body>
