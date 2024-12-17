@@ -16,9 +16,9 @@ h1 {
 
 #logo {
   width: 100px;
-  border-radius: 7px;
-  box-shadow: 0 5px 5px gainsboro;
+  box-shadow: 0 3px 3px gainsboro;
   margin-bottom: 30px;
+  border-radius: 3px;
 }
 
 #data {

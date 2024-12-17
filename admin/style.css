@@ -28,6 +28,11 @@ video {
 #status {
     margin-top: 20px;
     font-size: 1.2em;
-    color: #495057;
     text-align: center;
+}
+
+#cameras {
+    font-size: 1rem;
+    text-align: center;
+    margin-top: 30px;
 }

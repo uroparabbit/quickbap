@@ -1,4 +1,4 @@
-import { getCameras, updateCamera } from "../util.js";
+import { getCameras, updateCamera, setSnapshot } from "../util.js";
 
 const video = document.getElementById('camera');
 const statusDiv = document.getElementById('status');
@@ -52,4 +52,10 @@ let faceInARow = 0;
             }
         }
     }, 1000);
+
+
+    // 다른 카메라 로드
+    setSnapshot(cameras => {
+        document.getElementById("cameras").innerHTML = `0번째 카메라: ${cameras[0]}<br>1번째 카메라: ${cameras[1]}<br>2번째 카메라: ${cameras[2]}`
+    })
 })();
